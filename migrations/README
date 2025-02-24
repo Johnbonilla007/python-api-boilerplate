@@ -1,0 +1,73 @@
+# Python API Boilerplate
+
+Este proyecto es un ejemplo de cómo usar FastAPI con SQLAlchemy y Alembic para crear una API.
+
+## Requisitos
+
+- Python 3.8 o superior
+- SQL Server
+- ODBC Driver 17 para SQL Server
+
+## Configuración del Entorno
+
+1. Clona el repositorio:
+
+    ```sh
+    git clone https://github.com/tu-usuario/python-api-boilerplate.git
+    cd python-api-boilerplate
+    ```
+
+2. Crea y activa un entorno virtual:
+
+    ```sh
+    python -m venv venv
+    venv\Scripts\activate  # En Windows
+    # source venv/bin/activate  # En macOS/Linux
+    ```
+
+3. Instala las dependencias:
+
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+4. Configura las variables de entorno:
+
+    Crea un archivo [.env](http://_vscodecontentref_/0) en la raíz del proyecto con el siguiente contenido:
+
+    ```env
+    DATABASE_URL="mssql+pyodbc://localhost/PythonDB?driver=ODBC+Driver+17+for+SQL+Server&Trusted_Connection=yes&MultipleActiveResultSets=True&TrustServerCertificate=yes"
+    ```
+
+## Migraciones de Base de Datos
+
+1. Inicializa Alembic (si no lo has hecho ya):
+
+    ```sh
+    alembic init migrations
+    ```
+
+2. Genera una nueva migración:
+
+    ```sh
+    alembic revision --autogenerate -m "Initial migration"
+    ```
+
+3. Aplica las migraciones:
+
+    ```sh
+    alembic upgrade head
+    ```
+
+## Ejecutar la Aplicación
+
+1. Inicia la aplicación:
+
+    ```sh
+    uvicorn app.main:app --reload
+    ```
+
+2. Abre tu navegador y ve a `http://127.0.0.1:8000/docs` para ver la documentación de la API generada por Swagger.
+
+## Estructura del Proyecto
+Generic single-database configuration.
