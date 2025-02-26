@@ -7,3 +7,4 @@ class Product(Base):
     Id = Column(Integer, primary_key=True, index=True)
     Name = Column(String(255), index=True)
     Description = Column(String(255), index=True)
+    Test = Column(String(255), index=True)
